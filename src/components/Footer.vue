@@ -1,0 +1,58 @@
+<script setup></script>
+<template lang="">
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <ul class="d-flex justify-content-center align-items-center">
+            <li>
+              <a href="#">
+                <i class="fas fa-utensils fa-2xl"></i>
+                <span>Produzione</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-warehouse fa-2xl"></i>
+                <span>Magazzino</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-calendar-days fa-2xl"></i>
+                <span>Calendario</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fas fa-gear fa-2xl"></i>
+                <span>Amministrazione</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+<style lang="scss" scoped>
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid grey;
+
+  li {
+    padding: 30px 20px;
+    text-align: center;
+    a {
+      color: grey;
+    }
+    span {
+      display: block;
+      padding-top: 10px;
+    }
+  }
+}
+</style>

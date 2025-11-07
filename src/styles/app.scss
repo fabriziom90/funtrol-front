@@ -1,0 +1,29 @@
+@use './_partials/variables' as *;
+@use './_partials/mixins' as *;
+
+header{
+    background-color: $mainBlue;
+    padding: 20px 0px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #000
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
