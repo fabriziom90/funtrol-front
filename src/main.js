@@ -4,5 +4,6 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/app.scss';
 import '@fortawesome/fontawesome-free/css/all.css'
+import router from './router';
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')

@@ -27,3 +27,7 @@ ul{
     margin: 0;
     padding: 0;
 }
+
+.main-button{
+    @include mixin_button($mainBlue, $mainHoverBlue, #fff);
+}

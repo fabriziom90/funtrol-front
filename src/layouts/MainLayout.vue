@@ -4,7 +4,13 @@ import Footer from "../components/Footer.vue";
 </script>
 <template>
   <Header />
-  <slot />
+  <main class="container-fluid">
+    <router-view />
+  </main>
   <Footer />
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main {
+  margin-top: 150px;
+}
+</style>

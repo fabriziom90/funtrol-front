@@ -5,11 +5,11 @@
       <div class="row">
         <div class="col-12">
           <ul class="d-flex justify-content-center align-items-center">
-            <li>
-              <a href="#">
+            <li :class="{ active: $route.path === '/' }">
+              <router-link to="/">
                 <i class="fas fa-utensils fa-2xl"></i>
                 <span>Produzione</span>
-              </a>
+              </router-link>
             </li>
             <li>
               <a href="#">
@@ -36,16 +36,28 @@
   </footer>
 </template>
 <style lang="scss" scoped>
+@use "../styles/app.scss";
+@use "../styles/_partials/variables" as *;
+
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  border-top: 1px solid grey;
+  border-top: 1px solid #c7c7c7;
 
   li {
-    padding: 30px 20px;
+    padding: 20px;
     text-align: center;
+
+    &.active {
+      border-top: 3px solid $mainBlue;
+
+      a {
+        color: $mainBlue;
+      }
+    }
+
     a {
       color: grey;
     }
