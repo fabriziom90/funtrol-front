@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+const search = ref("");
 const products = [
   {
     id: 1,
@@ -20,7 +21,7 @@ const products = [
     name: "Farina Integrale",
     threshold: 80,
     unit: "Kg",
-    available: 100,
+    available: 50,
   },
   {
     id: 4,
@@ -44,6 +45,17 @@ const products = [
     available: 5,
   },
 ];
+const filteredProducts = ref(products);
+
+const filterProducts = computed(() => {
+  if (search !== "") {
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(search.value.toLowerCase())
+    );
+  }
+
+  return filteredProducts;
+});
 </script>
 <template lang="">
   <div class="row gy-3">
@@ -57,13 +69,17 @@ const products = [
       </p>
     </div>
     <div class="col-12">
-      <input
-        type="text"
-        class="form-control form-control-lg"
-        placeholder="Cerca prodotto"
-      />
+      <div class="input-wrapper">
+        <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+        <input
+          type="text"
+          placeholder="Cerca..."
+          v-model="search"
+          class="form-control form-control-lg"
+        />
+      </div>
     </div>
-    <div class="col-12" v-for="product in products" :key="product.id">
+    <div class="col-12" v-for="product in filterProducts" :key="product.id">
       <div class="card">
         <div class="d-flex justify-content-between align-items-center p-4">
           <div>
@@ -88,6 +104,11 @@ const products = [
 </template>
 <style lang="scss" scoped>
 @use "../styles/_partials/variables" as *;
+
+h2 {
+  color: $mainBlue;
+}
+
 .dot {
   width: 20px;
   height: 20px;
@@ -103,5 +124,21 @@ const products = [
 
 .dot-red {
   background-color: $mainRed;
+}
+
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.input-wrapper i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+.input-wrapper input {
+  padding-left: 50px;
 }
 </style>
