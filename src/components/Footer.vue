@@ -45,6 +45,7 @@ footer {
   left: 0;
   width: 100%;
   border-top: 1px solid #c7c7c7;
+  background-color: #fff;
 
   li {
     padding: 20px;
