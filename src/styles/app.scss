@@ -28,6 +28,18 @@ ul{
     padding: 0;
 }
 
+.fw-700{
+    font-weight: 700
+}
+
 .main-button{
     @include mixin_button($mainBlue, $mainHoverBlue, #fff);
+}
+
+.danger-alert{
+    padding: 20px 10px;
+    color: #fff;
+    background-color: $mainRed;
+    border-radius: 15px;
+    font-size: 18px;
 }

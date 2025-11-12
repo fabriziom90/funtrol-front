@@ -1,5 +1,10 @@
 <script setup>
-const recepies = [
+import { ref } from "vue";
+import Alert from "../components/Alert.vue";
+
+const showMessage = ref(false);
+const isLoading = ref(false);
+const recepies = ref([
   {
     id: 1,
     title: "Pizza Margherita",
@@ -15,7 +20,15 @@ const recepies = [
     title: "Croissant al Cioccolato",
     unit: "Pz",
   },
-];
+]);
+
+const handleSubmit = () => {
+  isLoading.value = true;
+  setTimeout(() => {
+    isLoading.value = false;
+    showMessage.value = true;
+  }, 1500);
+};
 </script>
 <template lang="">
   <div class="row gy-3">
@@ -29,6 +42,13 @@ const recepies = [
         {{ new Date().toLocaleDateString() }}
       </p>
     </div>
+
+    <Alert
+      v-if="showMessage"
+      type="danger"
+      message="Produzione registrata. ATTENZIONE 3 prodotti sono SOTTO SOGLIA"
+    />
+
     <div class="col-12" v-for="recepy in recepies" :key="recepy.id">
       <div class="card">
         <div class="d-flex justify-content-between p-4">
@@ -50,10 +70,22 @@ const recepies = [
       </div>
     </div>
     <div class="col-12">
-      <button class="main-button w-100">
-        Registra Produzione <span><i class="fas fa-check"></i></span>
+      <button class="main-button w-100" @click="handleSubmit">
+        <span v-if="!isLoading"
+          >Registra Produzione
+          <span class="icon-content"><i class="fas fa-check"></i></span
+        ></span>
+        <span v-else
+          ><i class="fa-solid fa-circle-notch fa-spin"></i>Caricamento...</span
+        >
       </button>
     </div>
+    <Alert
+      v-if="showMessage"
+      type="danger"
+      message="Genera Ordine Urgente"
+      classes="text-center fw-700"
+    />
   </div>
 </template>
 <style lang="scss" scoped>
@@ -74,7 +106,7 @@ h2 {
   }
 }
 
-.main-button span {
+.main-button .input-content {
   border: 3px solid #fff;
   border-radius: 50%;
   width: 30px;
