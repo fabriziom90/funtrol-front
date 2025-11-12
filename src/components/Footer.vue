@@ -11,11 +11,11 @@
                 <span>Produzione</span>
               </router-link>
             </li>
-            <li>
-              <a href="#">
+            <li :class="{ active: $route.path === '/warehouse' }">
+              <router-link to="/warehouse">
                 <i class="fa-solid fa-warehouse fa-2xl"></i>
                 <span>Magazzino</span>
-              </a>
+              </router-link>
             </li>
             <li>
               <a href="#">

@@ -51,7 +51,7 @@ const handleSubmit = () => {
 
     <div class="col-12" v-for="recepy in recepies" :key="recepy.id">
       <div class="card">
-        <div class="d-flex justify-content-between p-4">
+        <div class="d-flex justify-content-between align-items-center p-4">
           <div>
             <h4>{{ recepy.title }}</h4>
             <p>Unità: {{ recepy.unit }}</p>
