@@ -36,6 +36,10 @@ ul{
     @include mixin_button($mainBlue, $mainHoverBlue, #fff);
 }
 
+.secondary-button{
+    @include mixin_button($mainGrey, $mainGreyHover, grey);
+}
+
 .danger-alert{
     padding: 20px 10px;
     color: #fff;

@@ -1,4 +1,5 @@
 <script setup>
+import { defineEmits } from "vue";
 const props = defineProps({
   show: Boolean,
   type: String,
@@ -10,7 +11,7 @@ const props = defineProps({
 const emit = defineEmits(["openModal"]);
 
 const openModal = () => {
-  $emit;
+  emit("openModal");
 };
 </script>
 <template lang="">

@@ -1,9 +1,12 @@
 <script setup>
 import { ref } from "vue";
 import Alert from "../components/Alert.vue";
+import ModalEmailSupplier from "../components/ModalEmailSupplier.vue";
 
 const showMessage = ref(false);
 const isLoading = ref(false);
+const isModalOpen = ref(false);
+
 const recepies = ref([
   {
     id: 1,
@@ -28,6 +31,14 @@ const handleSubmit = () => {
     isLoading.value = false;
     showMessage.value = true;
   }, 1500);
+};
+
+const showModal = () => {
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
 };
 </script>
 <template lang="">
@@ -87,7 +98,9 @@ const handleSubmit = () => {
       message="Genera Ordine Urgente"
       classes="text-center fw-700"
       :event="true"
+      @openModal="showModal"
     />
+    <ModalEmailSupplier v-if="isModalOpen" @close="closeModal" />
   </div>
 </template>
 <style lang="scss" scoped>
