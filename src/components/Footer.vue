@@ -17,11 +17,11 @@
                 <span>Magazzino</span>
               </router-link>
             </li>
-            <li>
-              <a href="#">
+            <li :class="{ active: $route.path === '/calendar' }">
+              <router-link to="/calendar">
                 <i class="fa-solid fa-calendar-days fa-2xl"></i>
                 <span>Calendario</span>
-              </a>
+              </router-link>
             </li>
             <li>
               <a href="#">
@@ -46,7 +46,7 @@ footer {
   width: 100%;
   border-top: 1px solid #c7c7c7;
   background-color: #fff;
-
+  z-index: 80;
   li {
     padding: 20px;
     text-align: center;

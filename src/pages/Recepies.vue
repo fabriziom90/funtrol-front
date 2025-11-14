@@ -47,6 +47,7 @@ const handleSubmit = () => {
       v-if="showMessage"
       type="danger"
       message="Produzione registrata. ATTENZIONE 3 prodotti sono SOTTO SOGLIA"
+      :event="false"
     />
 
     <div class="col-12" v-for="recepy in recepies" :key="recepy.id">
@@ -85,6 +86,7 @@ const handleSubmit = () => {
       type="danger"
       message="Genera Ordine Urgente"
       classes="text-center fw-700"
+      :event="true"
     />
   </div>
 </template>

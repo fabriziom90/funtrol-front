@@ -61,7 +61,7 @@ const filterProducts = computed(() => {
   <div class="row gy-3">
     <div class="col-12">
       <h2>
-        <i class="fas fa-utensils fa-xl"></i>
+        <i class="fas fa-warehouse fa-xl"></i>
         Magazzino (Riepilogo)
       </h2>
       <p class="pt-3">
